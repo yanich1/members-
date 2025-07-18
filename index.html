@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>انضم إلى فريقنا</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #f0f8ff;
+            line-height: 1.8;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(46, 204, 113, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(52, 152, 219, 0.1) 0%, transparent 40%);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: #4cd137;
+            opacity: 0;
+            animation: fadeIn 1s 0.2s forwards;
+        }
+
+        .logo span {
+            color: #3498db;
+        }
+
+        .welcome-text {
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-bottom: 40px;
+            color: #4cd137;
+            opacity: 0;
+            animation: fadeIn 1s 0.4s forwards;
+        }
+
+        .content {
+            background: rgba(15, 32, 39, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 50px 40px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(52, 152, 219, 0.2);
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUp 1s 0.6s forwards;
+        }
+
+        .highlight {
+            color: #4cd137;
+            font-weight: 500;
+        }
+
+        .emphasis {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin: 30px 0;
+            padding: 20px;
+            border-left: 3px solid #3498db;
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 0 10px 10px 0;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 30px 0;
+            opacity: 0;
+            animation: fadeIn 1s 1.2s forwards;
+        }
+
+        .cta-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: #f1c40f;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 18px 50px;
+            background: linear-gradient(to right, #3498db, #2ecc71);
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 10px 25px rgba(46, 204, 113, 0.3);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(46, 204, 113, 0.4);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, #2ecc71, #3498db);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+
+        .btn:hover::after {
+            opacity: 1;
+        }
+
+        .floating-icons {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-icons div {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(52, 152, 219, 0.15);
+            animation: float 15s infinite linear;
+        }
+
+        .floating-icons div:nth-child(1) {
+            width: 40px;
+            height: 40px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-icons div:nth-child(2) {
+            width: 70px;
+            height: 70px;
+            top: 60%;
+            left: 80%;
+            animation-delay: 2s;
+        }
+
+        .floating-icons div:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            top: 40%;
+            left: 40%;
+            animation-delay: 4s;
+        }
+
+        .floating-icons div:nth-child(4) {
+            width: 50px;
+            height: 50px;
+            top: 70%;
+            left: 20%;
+            animation-delay: 6s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+
+            50% {
+                transform: translateY(-40px) rotate(180deg);
+                opacity: 0.7;
+            }
+
+            100% {
+                transform: translateY(0) rotate(360deg);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .logo {
+                font-size: 1.8rem;
+            }
+
+            .welcome-text {
+                font-size: 1.5rem;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .emphasis {
+                font-size: 1.1rem;
+            }
+
+            .cta-title {
+                font-size: 1.5rem;
+            }
+
+            .btn {
+                padding: 15px 40px;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="floating-icons">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <div class="container">
+        <div class="hero">
+            <div class="welcome-text">مرحبًا بك وأتمنى أن تكون بخير وفي أحسن حال 🌿</div>
+        </div>
+
+        <div class="content">
+            <p>سررنا بوجودك هنا، وهذا ليس مجرد ترحيب عابر… بل بداية محتملة لقصة جديدة.</p>
+
+            <p>نحن نعمل كفريق، بروح واحدة وعقلية متقاربة. قد أكون أنا من يحدثك الآن، ولكن خلف هذه الرسالة هناك فريق كامل
+                يعمل ويؤمن بنفس الفكرة:</p>
+
+            <p class="emphasis">أن النجاح الحقيقي يبدأ حين نعمل مع من يشبهوننا في الطريقة، لا فقط في النتيجة.</p>
+
+            <p>نحن نعمل مع <span class="highlight">ARVEA</span> – ربما سمعت عنا من قبل، وربما لم تسمع أبدًا… أو ربما كنت
+                من أعضائنا ثم ابتعدت لأي سبب كان.</p>
+
+            <p><span class="highlight">ARVEA</span> ليست مجرد شركة. إنها منظومة فريدة في مجال البيع المباشر (MLM)، تعتمد
+                على التفاعل المباشر مع المستهلك، وليس عبر المتاجر أو الأسواق.</p>
+
+            <p>العمل فيها بسيط… بسيط جدًا لمن يفهم الصورة الكبيرة ويعمل بخطوات واسعة وواضحة. لا نبحث عن مَن يغرقون في
+                التفاصيل… بل عن من يتحركون نحو الهدف بثقة.</p>
+
+            <p>نحن نبحث الآن عن أعضاء جدد، لكن ليس أي أعضاء… نحن نبحث عن أشخاص يشبهوننا في طريقة التفكير، في المنهج، في
+                الأسلوب. لأن التشابه في العقلية يجعل التواصل أسهل، والعمل أسرع، والنتائج أقوى.</p>
+
+            <p>إذا شعرت بأنك من هذا النوع… فندعوك لتجربة بسيطة: اختبار صغير، يساعدنا و يساعدك على اكتشاف إن كنا نصلح
+                للعمل سويًا.</p>
+        </div>
+
+        <div class="cta-section">
+            <h2 class="cta-title">هل أنت جاهز؟</h2>
+            <a href="test.html" class="btn">ابدأ الاختبار الآن</a>
+        </div>
+    </div>
+
+    <script>
+        // Floating elements animation
+        document.addEventListener('DOMContentLoaded', function () {
+            const floatingElements = document.querySelectorAll('.floating-icons div');
+
+            floatingElements.forEach(el => {
+                // Randomize initial positions
+                el.style.top = `${Math.random() * 100}%`;
+                el.style.left = `${Math.random() * 100}%`;
+
+                // Randomize animation duration
+                const duration = 15 + Math.random() * 15;
+                el.style.animationDuration = `${duration}s`;
+
+                // Randomize size
+                const size = 30 + Math.random() * 70;
+                el.style.width = `${size}px`;
+                el.style.height = `${size}px`;
+            });
+        });
+    </script>
+</body>
+
+</html>
